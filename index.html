@@ -1,1 +1,387 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barca blog</title>
+    <style>
+        body{
+            background-color: black;
+            margin: 0 auto;
+        }
+        header{
+            padding: 0;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+        nav{
+            backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.221);
+            top: 0;
+            display: flex;
+            background-color: transparent;
+            height: 50px;
+            justify-content: space-between;
+            padding: 10px 30px 10px 40px;
+        }
+        .left-column img{
+            width: 110px;
+            height: 60px;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.08);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .left-column{
+            color: white;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+        .left-column a{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .right-column ul{
+            display: flex;
+            list-style: none;
+        }
+        .right-column a{
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+        .right-column li{
+            position: relative;
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            color: white;
+            margin-left: 40px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .right-column li::after{
+            position: absolute;
+            content: '';
+            z-index: 1;
+            background-image: linear-gradient(to right, blue, red);
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            transition: 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        .right-column li:hover::after{
+            width: 100%;
+        }
+        .right-column button{
+            margin: 0 0 0 40px;
+            background-color: red;
+            border: 2px solid red;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.5s ease-in-out;
+        }
+        .right-column button:hover{
+            background-color: white;
+            color: red;
+        }
+        @media only screen and (max-width:768px) {
+            nav{
+                width: 100%;
+                padding: 5px 0 0 0;
+                margin: 0;
+            }
+            .left-column{
+                width: 28%;
+            }
+            .left-column img{
+                width: 70px;
+                height: 40px;
+            }
+            .left-column a{
+                font-size: 7px;
+            }
+            .right-column{
+                padding-right: 10px;
+                justify-content: right;
+                display: flex;
+                align-items: end;
+                width: 72%;
+            }
+            .right-column li{
+                font-size: 11px;
+                margin-left: 5px;
+            }
+            .right-column button{
+                margin-top: 5px;
+                margin-left: 5px;
+                font-size: 10px;
+                padding: 0;
+                height: 20px;
+            }
+        }
+        .exp-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-exp img{
+            width: 70%;
+            transition: 0.5s ease-in-out;
+        }
+        .left-exp img:hover{
+            transform: scale(1.05);
+        }
+        .left-exp{
+        padding-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .right-exp{
+            width: 40%;
+            padding-right: 50px;
+            height: 100px;
+            color: white;
+        }
+        .right-exp p{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .right-exp h2{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 1000;
+        }
+        .right-exp button{
+            background-color: red;
+            border: 0;
+            padding: 5px;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            transition: 0.5s ease-in-out;
+        }
+        .right-exp button:hover{
+            transform: scale(1.15);
+        }
+        @media only screen and (max-width:768px) {
+            .exp-section{
+                margin-top: 230px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .right-exp{
+                margin: 0 auto;
+                width: 60%;
+            }
+            .right-exp h2{
+                font-size: 20px;
+            }
+            .right-exp p{
+                font-size: 14px;
+            }
+            .right-exp button{
+                font-size: 12px;
+            }
+        }
+        .menu-section{
+            padding: 40px 0 40px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .red-sec{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+        .red-sec button{
+            background-color: red;
+            border-radius: 30px;
+            border: 0;
+            padding: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 25px;
+            width: 70%;
+            transition: 0.3s ease-in-out;
+        }
+        .red-sec button:hover{
+            transform: scale(1.2);
+            border: 3px solid black;
+            background-color: rgb(208, 0, 0);
+        }
+        .blue-sec{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+        }
+        .blue-sec button{
+            background-color: blue;
+            border-radius: 30px;
+            border: 0;
+            padding: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 25px;
+            width: 70%;
+            transition: 0.3s ease-in-out;
+        }
+        .blue-sec button:hover{
+            transform: scale(1.2);
+            border: 3px solid black;
+            background-color: rgb(0, 0, 214);
+        }
+        @media only screen and (max-width:768px) {
+            header{
+                height: 200px;
+            }
+            .menu-section{
+                position: relative;
+                padding-top: 100px;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+            .red-sec, .blue-sec{
+                height: 70px;
+                padding: 0;
+                margin: 0;
+                width: 95%;
+            }
+            .red-sec button, .blue-sec button{
+                width: 80%;
+                font-size: 17px;
+            }
+        }
+        footer{
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.402);
+            padding: 50px;
+            justify-content: space-between;
+            display: flex;
+        }
+        .right-footer{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+        .right-footer a{
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .right-footer p{
+            line-height: 0.5;
+            text-align: center;
+        }
+        .right-footer h3{
+            text-align: center;
+        }
+        .left-footer{
+            padding-top: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-left: 60px;
+            width: 20%;
+        }
+        @media only screen and (max-width:768px) {
+            footer{
+                padding: 20px;
+                margin-top: 130px;
+                grid-gap: 20px;
+            }
+            .left-footer{
+                padding: 10px;
+                width: 30%;
+            }
+            .right-footer{
+                width: 70%;
+            }
+            .left-footer h1{
+                font-size: 25px;
+            }
+            .right-footer h3{
+                font-size: 17px;
+            }
+            .right-footer p{
+                font-size: 12px;
+            }
+            .right-footer a{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left-column"><img src="images/barcalogo.png" alt=""><a>BARCA BLOG</a></div>
+            <div class="right-column">
+                <ul>
+                    <li>HOME</li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">CONTACT</a></li>
+                    <button>SIGN UP</button>
+                </ul>
+            </div>
+        </nav>
+        <section class="menu-section">
+            <div class="red-sec">
+                <button>NEWS AND UPDATES</button>
+            </div>
+            <div class="blue-sec">
+                <button>STANDINGS</button>
+            </div>
+            <div class="blue-sec">
+                <button>STATISTICS</button>
+            </div>
+            <div class="red-sec">
+                    <button>FIXTURES AND RESULTS</button>
+            </div>
+        </section>
+    </header>
+    <section  class="exp-section">
+        <div class="left-exp"><img src="images/squad.jpeg" alt=""></div>
+        <div class="right-exp">
+            <h2>STAY AHEAD OF THE GAME</h2>
+            <p>Sign up now to get access to personalized updates, stats and insights on your favourite team</p>
+            <button>SIGN UP</button>
+        </div>
+    </section>
+    <footer>
+        <div class="left-footer">
+            <h1>
+            <span style="color: red;">Mes</span>
+            <span style="color: blue;">que</span>
+            <span style="color: red;">un</span>
+            <span style="color: yellow;">club</span>
+        </h1></div>
+        <div class="right-footer">
+            <h3>CONTACT US:</h3>
+            <p>Instagram</p>
+            <p>Youtube</p>
+            <p>Facebook</p>
+            <p><a href="">privacy policy</a><a href="">terms and condition</a></p>
+        </div>
+    </footer>
+</body>
+</html>
